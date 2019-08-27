@@ -5,7 +5,7 @@ final float deltaT = .1;
 final float damping = 1e-7;
 final int   nbRepulsionSteps = 3;
 final int   nbJacobiIterations = 10;
-      float gravityForce = 10;                  // WARNING: in Processing a positive y value means "downwards"
+      float gravityForce = 9.81;                  // WARNING: in Processing a positive y value means "downwards"
       float thickRatio = .15;                   // "Thickness ratio" of the water volume [0-1]
 
 // Repulsion
