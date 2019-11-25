@@ -1,0 +1,50 @@
+Processing implementation of the paper "Two-Dimensional Stochastic Rotation Dynamics for Fluid Simulation"
+Copyright (C) 2019 B. Crespin, C.T. Tran, M. Cerbelaud, A. Videcoq, E. Darles
+
+==========================================================================================================
+Installation:
+
+* Download Processing: https://processing.org/download/
+* Download directory "SRD2Dsubmission/"
+* Open and run the file "SRD2Dsubmission/SRD2Dsubmission.pde"
+
+==========================================================================================================
+Usage:
+
+Press SPACE to add droplet / 'd': dam break flood / 'r': fluid at rest
+      'v': mixing fluids / 'b': add/remove ball / Use the mouse to push
+      'a/A': change alpha value
+      'h': print this help message
+
+==========================================================================================================
+Structure:
+
+The code is structured into files/classes. In the main file "SRD2Dsubmission.pde" we define all the 
+parameters, initialize the objects corresponding to particles and cells, then run the simulation iterations 
+in an infinite loop (function "draw"). This loop also include the interactions with the user 
+(keyboard or mouse) and rendering.
+
+The file "Particle.pde" first declares the attributes of a particle such as its position, velocity, the 
+index of its associated cell, etc. The computation of the local repulsion and SRD collision steps is 
+defined here, as well as the application of the gravity and the pressure force, and finally the advection 
+of a particle before the next iteration.
+
+The file "Cell.pde" declares the attribute of a cell, including its position and a list of the particles it 
+contains. All the code needed for cell pressure computation is defined here, such as average velocity, 
+divergence, pressure, pressure gradient and density ratio. An integer value is also used to characterize if 
+the cell is empty, has an empty cell neighbor, or is surrounded by non-empty cells.
+
+An additional file "Ball.pde" defines the behavior of the moving ball interacting with the fluid.
+
+==========================================================================================================
+License:
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General 
+Public License as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the 
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public 
+License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see 
+<https://www.gnu.org/licenses/>
